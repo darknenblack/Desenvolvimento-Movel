@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#AAAAAA</color>
+    <!--Paleta 1 do FIGMA, LARANJA 3-->
+    <color name="orange3_pallet1">#C9661F</color>
 </resources>
