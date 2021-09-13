@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@color/black"
+    android:gravity="center"
+    android:orientation="vertical"
     android:padding="15dp">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="523dp"
+        android:layout_width="358dp"
+        android:layout_height="355dp"
         android:layout_gravity="center"
-        android:src="@drawable/misturae_vector"></ImageView>
+        android:baselineAligned="false"
+        android:src="@drawable/ic_logotype"></ImageView>
 
-    <ProgressBar
-        xmlns:tools="http://schemas.android.com/tools"
+    <ProgressBar xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/progres_abertura"
+        style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:max="100"
-        tools:progress="60"
         android:progressDrawable="@drawable/desenho_progressbar"
-        style="@android:style/Widget.ProgressBar.Horizontal">
+        tools:progress="60">
 
     </ProgressBar>
 
