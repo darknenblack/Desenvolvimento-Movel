@@ -1,8 +1,13 @@
 package com.example.teste;
 
-import android.content.Context;
+import static android.content.ContentValues.TAG;
+
+import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,17 +20,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+public class RandomDrink extends AppCompatActivity {
 
-import static android.content.ContentValues.TAG;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_random_drink);
 
-public class HandleRequest {
+        TextView idDrink = (TextView) findViewById(R.id.id);
+        TextView nomeDrink = (TextView) findViewById(R.id.nome);
 
-    public ArrayList<String> MakeRequest(String url, Context context) {
-        ArrayList<String> drinks = new ArrayList<String>();
+        String url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         JsonObjectRequest objectRequest = new JsonObjectRequest(
                 Request.Method.GET, url, null,
@@ -40,19 +47,19 @@ public class HandleRequest {
 
                                 JSONObject jobject = jarray.getJSONObject(0);
 
-                                drinks.add(jobject.getString("idDrink"));
-                                drinks.add(jobject.getString("strDrink"));
-                                
+                                idDrink.setText(jobject.getString("idDrink"));
+                                nomeDrink.setText(jobject.getString("strDrink"));
+
                             } catch (final JSONException e) {
                                 Log.e(TAG, "Json parsing error: " + e.getMessage());
-                                Toast.makeText(context,
+                                Toast.makeText(getApplicationContext(),
                                         "Json parsing error: " + e.getMessage(),
                                         Toast.LENGTH_LONG).show();
                             }
 
                         } else {
                             Log.e(TAG, "Couldn't get json from server.");
-                            Toast.makeText(context,
+                            Toast.makeText(getApplicationContext(),
                                     "Couldn't get json from server. Check LogCat for possible errors!",
                                     Toast.LENGTH_LONG).show();
                         }
@@ -68,12 +75,5 @@ public class HandleRequest {
                 });
 
         requestQueue.add(objectRequest);
-        Log.d(TAG, String.valueOf(drinks));
-        return drinks;
     }
 }
-
-
-
-
-

@@ -12,15 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Teste">
         <activity
+            android:name=".RandomDrink"
+            android:exported="true" />
+        <activity
             android:name=".Tela_inicial"
-            android:label="@string/title_activity_tela_inicial"></activity>
+            android:label="@string/title_activity_tela_inicial" />
 
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/actions" />
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".AberturaActivity"
+        <activity
+            android:name=".AberturaActivity"
             android:theme="@style/Theme.Teste.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
