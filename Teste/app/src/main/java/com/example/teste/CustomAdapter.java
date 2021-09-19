@@ -1,5 +1,6 @@
 package com.example.teste;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
@@ -26,15 +27,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // infalte the item Layout
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.rowlayout, parent, false);
-        MyViewHolder vh = new MyViewHolder(v); // pass the view to View Holder
+        MyViewHolder vh = new MyViewHolder(v);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
-        // set the data in items
+    public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
+        // set the data
         holder.vid.setText(id.get(position));
         holder.vnome.setText(nome.get(position));
         // implement setOnClickListener event on item view.
@@ -48,7 +48,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     }
 
-
     @Override
     public int getItemCount() {
         return id.size();
@@ -61,8 +60,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             super(itemView);
 
             // get the reference of item view's
-            vid = (TextView) itemView.findViewById(R.id.id);
-            vnome = (TextView) itemView.findViewById(R.id.nome);
+            TextView vid = (TextView) itemView.findViewById(R.id.id);
+            TextView vnome = (TextView) itemView.findViewById(R.id.nome);
 
         }
     }

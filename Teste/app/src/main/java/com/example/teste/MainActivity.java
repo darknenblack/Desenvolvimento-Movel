@@ -18,6 +18,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         recyclerView.getAdapter().notifyDataSetChanged();
-
+                      
                     } catch (final JSONException e) {
                         Log.e(TAG, "Json parsing error: " + e.getMessage());
                         Toast.makeText(getApplicationContext(),
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
         //  call the constructor of CustomAdapter to send the reference and data to Adapter
         CustomAdapter customAdapter = new CustomAdapter(MainActivity.this, id, nome);
