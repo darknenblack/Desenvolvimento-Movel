@@ -16,6 +16,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        BottomNavigationView navView = findViewById(R.id.bottomNavigationView);
 
         ArrayList<String> id = new ArrayList<>();
         ArrayList<String> nome = new ArrayList<>();
@@ -61,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
                             nome.add(drinksObject.getString("strDrink"));
                         }
 
+                        recyclerView.getAdapter().notifyDataSetChanged();
+                      
                     } catch (final JSONException e) {
                         Log.e(TAG, "Json parsing error: " + e.getMessage());
                         Toast.makeText(getApplicationContext(),
@@ -68,10 +73,10 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                 } else {
-                Log.e(TAG, "Couldn't get json from server.");
-                Toast.makeText(getApplicationContext(),
-                        "Couldn't get json from server. Check LogCat for possible errors!",
-                        Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "Couldn't get json from server.");
+                    Toast.makeText(getApplicationContext(),
+                            "Couldn't get json from server. Check LogCat for possible errors!",
+                            Toast.LENGTH_LONG).show();
                 }
             }
         },new Response.ErrorListener() {
@@ -80,12 +85,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Rest Response Error", error.toString());
 
             }
-                });
+        });
+
 
         //  call the constructor of CustomAdapter to send the reference and data to Adapter
         CustomAdapter customAdapter = new CustomAdapter(MainActivity.this, id, nome);
         recyclerView.setAdapter(customAdapter);
-
 
         requestQueue.add(objectRequest);
     }
@@ -95,4 +100,3 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
-
