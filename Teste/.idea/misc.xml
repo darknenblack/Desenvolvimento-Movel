@@ -3,9 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.35539343408025015" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_misturae.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/misturae_vector.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/round_progress.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/layout/activity_abertura.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_random_drink.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/rowlayout.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.35520833333333335" />
       </map>
     </option>
   </component>

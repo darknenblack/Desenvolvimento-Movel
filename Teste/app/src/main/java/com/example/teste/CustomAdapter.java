@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,8 +40,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // display a toast with person name on item click
-                Toast.makeText(context, id.get(position), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -60,8 +57,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             super(itemView);
 
             // get the reference of item view's
-            TextView vid = (TextView) itemView.findViewById(R.id.id);
-            TextView vnome = (TextView) itemView.findViewById(R.id.nome);
+            vid = (TextView) itemView.findViewById(R.id.id);
+            vnome = (TextView) itemView.findViewById(R.id.nome);
 
         }
     }

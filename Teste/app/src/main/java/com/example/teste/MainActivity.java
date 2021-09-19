@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,12 +19,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         recyclerView.getAdapter().notifyDataSetChanged();
-                      
+
                     } catch (final JSONException e) {
                         Log.e(TAG, "Json parsing error: " + e.getMessage());
                         Toast.makeText(getApplicationContext(),
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 }
             }
-        },new Response.ErrorListener() {
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("Rest Response Error", error.toString());
@@ -93,10 +92,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(customAdapter);
 
         requestQueue.add(objectRequest);
-    }
 
-    public void GetRandomDrink(View view) throws IOException {
-        Intent intent = new Intent(this, RandomDrink.class);
-        startActivity(intent);
+        Button randomButton = (Button) findViewById(R.id.randomButton);
+        randomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), RandomDrink.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

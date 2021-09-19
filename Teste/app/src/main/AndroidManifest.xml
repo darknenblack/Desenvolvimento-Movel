@@ -15,11 +15,11 @@
         <activity
             android:name=".RandomDrink"
             android:exported="true" />
+
         <activity
             android:name=".Tela_inicial"
             android:label="@string/title_activity_tela_inicial"
             android:theme="@style/Theme.Fab_Bottom_app_bar" />
-
 
         <meta-data
             android:name="com.google.android.actions"
@@ -36,7 +36,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RandomDrink"></activity>
     </application>
 
 </manifest>
