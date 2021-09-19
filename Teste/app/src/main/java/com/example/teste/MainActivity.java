@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
         requestQueue.add(objectRequest);
 
-        Button randomButton = (Button) findViewById(R.id.randomButton);
+        FloatingActionButton randomButton = findViewById(R.id.randomButton);
         randomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
