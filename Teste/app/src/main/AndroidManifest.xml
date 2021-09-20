@@ -14,7 +14,8 @@
 
         <activity
             android:name=".RandomDrink"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
             android:name=".Tela_inicial"

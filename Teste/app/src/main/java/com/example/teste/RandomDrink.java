@@ -2,12 +2,18 @@ package com.example.teste;
 
 import static android.content.ContentValues.TAG;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,11 +27,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RandomDrink extends AppCompatActivity {
+    private Toolbar toolbar;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_drink);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         TextView idDrink = (TextView) findViewById(R.id.id);
         TextView nomeDrink = (TextView) findViewById(R.id.nome);
@@ -49,6 +63,8 @@ public class RandomDrink extends AppCompatActivity {
 
                                 idDrink.setText(jobject.getString("idDrink"));
                                 nomeDrink.setText(jobject.getString("strDrink"));
+
+                                toolbar.setTitle(jobject.getString("strDrink"));
 
                             } catch (final JSONException e) {
                                 Log.e(TAG, "Json parsing error: " + e.getMessage());
@@ -76,4 +92,29 @@ public class RandomDrink extends AppCompatActivity {
 
         requestQueue.add(objectRequest);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.drink_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            case R.id.action_favorite:
+                Toast.makeText(getApplicationContext(), "Setting favorite", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_share:
+                Toast.makeText(getApplicationContext(), "Search share", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
