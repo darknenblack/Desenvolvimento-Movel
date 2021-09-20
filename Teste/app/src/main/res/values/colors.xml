@@ -10,6 +10,7 @@
     <color name="gray">#AAAAAA</color>
 
     <color name="fundo_darkbackground">#161717</color>
+    <color name="fundo_azulteste">#121421</color>
     <color name="fundo_menu_bottom_gray">#6B6B6B</color>
     <!--Paleta 1 do FIGMA, LARANJA 3-->
     <color name="orange3_pallet1">#C9661F</color>

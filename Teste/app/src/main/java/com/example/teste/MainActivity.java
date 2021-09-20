@@ -3,6 +3,7 @@ package com.example.teste;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +31,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private String TAG = MainActivity.class.getSimpleName();
+    private Button Home, Favoritos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,13 +98,37 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(objectRequest);
 
         FloatingActionButton randomButton = findViewById(R.id.randomButton);
-        randomButton.setOnClickListener(new View.OnClickListener() {
+        //Home = (NavigationView) findViewById(R.id.bottomNavigationView);
+        //Favoritos = (Button) findViewById(R.id.Favoritos);
+
+        randomButton.setOnClickListener(new View.OnClickListener(){
+
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), RandomDrink.class);
-                startActivity(intent);
+                Intent intent3 = new Intent(getApplicationContext(), RandomDrink.class);
+                startActivity(intent3);
+            /*    switch (view.getId()) {
+            case R.id.home:
+                Toast.makeText(getApplicationContext(), "Setting favorite", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.Favoritos:
+                Toast.makeText(getApplicationContext(), "as favorite", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.randomButton:
+
+                break;
+
+                }*/
             }
+
         });
+        //Home.setOnClickListener(this);
+        //Favoritos.setOnClickListener(this);
+
 
     }
+
+
+
+
 }

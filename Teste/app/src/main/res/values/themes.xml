@@ -20,9 +20,9 @@
     </style>
 
     <style name="Theme.Fab_Bottom_app_bar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">#0F9D58</item>
-        <item name="colorPrimaryVariant">#0F9D58</item>
-        <item name="colorOnPrimary">#000</item>
+        <item name="colorPrimary">#FFF</item>
+        <item name="colorPrimaryVariant">#6B6B6B</item>
+        <item name="colorOnPrimary">#6B6B6B</item>
     </style>
 
 

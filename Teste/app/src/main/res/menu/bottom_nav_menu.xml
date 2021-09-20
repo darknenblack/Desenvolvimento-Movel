@@ -12,7 +12,7 @@
 
 
     <item
-        android:id="@+id/Settings"
+        android:id="@+id/Favoritos"
         android:icon="@drawable/ic_baseline_favorite_24"
         android:title="Favoritos" />
 
