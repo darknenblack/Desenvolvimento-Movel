@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:background="@drawable/curvedtoolbar">
+
+    <RelativeLayout
+        android:id="@+id/rlToolBar"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp">
+
+        <ImageView
+            android:id="@+id/ivMenu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_baseline_menu_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24dp"
+            android:layout_toRightOf="@id/ivMenu"
+            android:text="Misturaê"
+            android:textColor="#FFF"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:layout_width="85dp"
+            android:layout_height="56dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_filter" />
+
+    </RelativeLayout>
+
+
+</androidx.appcompat.widget.Toolbar>

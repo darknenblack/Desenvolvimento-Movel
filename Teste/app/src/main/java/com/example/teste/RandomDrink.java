@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,8 +43,12 @@ public class RandomDrink extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        TextView idDrink = (TextView) findViewById(R.id.id);
+        //TextView idDrink = (TextView) findViewById(R.id.id);
         TextView nomeDrink = (TextView) findViewById(R.id.nome);
+
+        TextView Glasstype = (TextView) findViewById(R.id.glasstype);
+        ImageView imagemthumb = (ImageView) findViewById(R.id.imagethumbactivity);
+
 
         String url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
@@ -61,10 +67,13 @@ public class RandomDrink extends AppCompatActivity {
 
                                 JSONObject jobject = jarray.getJSONObject(0);
 
-                                idDrink.setText(jobject.getString("idDrink"));
+                                toolbar.setTitle(jobject.getString("strCategory"));
+                                //idDrink.setText(jobject.getString("idDrink"));
+                                Picasso.get().load(jobject.getString("strDrinkThumb")).into(imagemthumb);
                                 nomeDrink.setText(jobject.getString("strDrink"));
+                                Glasstype.setText(jobject.getString("strGlass") + ", " + jobject.getString("strAlcoholic"));
 
-                                toolbar.setTitle(jobject.getString("strDrink"));
+
 
                             } catch (final JSONException e) {
                                 Log.e(TAG, "Json parsing error: " + e.getMessage());
