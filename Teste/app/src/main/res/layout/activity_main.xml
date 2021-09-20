@@ -10,7 +10,7 @@
         android:id="@+id/coordinatorLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/fundo_darkbackground"
+        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,6 @@
             android:layout_gravity="center"
             android:layout_margin="16dp"
             android:contentDescription="@string/app_name"
-            android:onClick="GetRandomDrink"
             android:src="@drawable/ic_misturae"
             android:translationZ="90dp"
             app:layout_anchor="@id/bottomAppBar" />
@@ -32,10 +31,9 @@
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="bottom"
-            android:background="@color/black"
-            app:backgroundTint="#FFFFFF"
+            app:backgroundTint="@color/orange3_pallet1"
             app:fabCradleMargin="10dp"
             app:fabCradleRoundedCornerRadius="10dp"
             app:fabCradleVerticalOffset="10dp">
@@ -45,6 +43,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:paddingRight="25dp"
                 android:theme="@style/Theme.Fab_Bottom_app_bar"
                 app:labelVisibilityMode="auto"
                 app:menu="@menu/bottom_nav_menu"
