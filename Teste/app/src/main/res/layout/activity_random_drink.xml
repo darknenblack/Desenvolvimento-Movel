@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".RandomDrink"
-        android:id="@+id/linearLayout"
-        android:background="@color/fundo_darkbackground"
-        android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo_darkbackground"
+    android:orientation="vertical"
+    tools:context=".RandomDrink">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -20,9 +19,8 @@
         <ImageView
             android:id="@+id/imagethumbactivity"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:scaleType="centerCrop"
-            />
+            android:layout_height="264dp"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/nome"
@@ -53,6 +51,69 @@
             android:layout_marginTop="13dp"
             android:background="#626161"
             android:gravity="center" />
+
+        <TextView
+            android:id="@+id/Ingredients_Tittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="18dp"
+            android:text="@string/Ingredients"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/orange3_pallet1"
+            android:textSize="18dp"
+            android:textStyle="normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ing1"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/white"
+                    android:textColorHighlight="@color/orange3_pallet1"
+                    android:textSize="13dp"
+                    android:textStyle="normal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/ing2"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/white"
+                    android:textColorHighlight="@color/orange3_pallet1"
+                    android:textSize="13dp"
+                    android:textStyle="normal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/ing3"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/white"
+                    android:textColorHighlight="@color/orange3_pallet1"
+                    android:textSize="13dp"
+                    android:textStyle="normal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/Instructions_Tittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="18dp"
+            android:text="@string/Instructions"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/orange3_pallet1"
+            android:textSize="18dp"
+            android:textStyle="normal" />
 
 </LinearLayout>
 

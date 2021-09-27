@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,9 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RandomDrink extends AppCompatActivity {
     private Toolbar toolbar;
@@ -49,6 +53,8 @@ public class RandomDrink extends AppCompatActivity {
         TextView Glasstype = (TextView) findViewById(R.id.glasstype);
         ImageView imagemthumb = (ImageView) findViewById(R.id.imagethumbactivity);
 
+        TextView ing1 = (TextView) findViewById(R.id.ing1);
+        TextView ing2 = (TextView) findViewById(R.id.ing2);
 
         String url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
@@ -68,12 +74,18 @@ public class RandomDrink extends AppCompatActivity {
                                 JSONObject jobject = jarray.getJSONObject(0);
 
                                 toolbar.setTitle(jobject.getString("strCategory"));
-                                //idDrink.setText(jobject.getString("idDrink"));
                                 Picasso.get().load(jobject.getString("strDrinkThumb")).into(imagemthumb);
                                 nomeDrink.setText(jobject.getString("strDrink"));
                                 Glasstype.setText(jobject.getString("strGlass") + ", " + jobject.getString("strAlcoholic"));
 
-
+                                if (jobject.getString("strIngredient1") != null) {
+                                    ing1.setVisibility(View.VISIBLE);
+                                    ing1.setText(jobject.getString("strIngredient1") + ": " + jobject.getString("strMeasure1"));
+                                }
+                                if (jobject.getString("strIngredient2") != null) {
+                                    ing2.setVisibility(View.VISIBLE);
+                                    ing2.setText(jobject.getString("strIngredient2") + ": " + jobject.getString("strMeasure2"));
+                                }
 
                             } catch (final JSONException e) {
                                 Log.e(TAG, "Json parsing error: " + e.getMessage());
