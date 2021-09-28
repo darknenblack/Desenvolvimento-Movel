@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +30,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RandomDrink extends AppCompatActivity {
@@ -53,8 +56,10 @@ public class RandomDrink extends AppCompatActivity {
         TextView Glasstype = (TextView) findViewById(R.id.glasstype);
         ImageView imagemthumb = (ImageView) findViewById(R.id.imagethumbactivity);
 
-        TextView ing1 = (TextView) findViewById(R.id.ing1);
-        TextView ing2 = (TextView) findViewById(R.id.ing2);
+        ListView lista = (ListView) findViewById(R.id.lista);
+        ArrayList<String> ingr = new ArrayList<>();
+
+        TextView inst = (TextView) findViewById(R.id.inst);
 
         String url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
@@ -77,15 +82,18 @@ public class RandomDrink extends AppCompatActivity {
                                 Picasso.get().load(jobject.getString("strDrinkThumb")).into(imagemthumb);
                                 nomeDrink.setText(jobject.getString("strDrink"));
                                 Glasstype.setText(jobject.getString("strGlass") + ", " + jobject.getString("strAlcoholic"));
+                                inst.setText(jobject.getString("strInstructions"));
 
-                                if (jobject.getString("strIngredient1") != null) {
-                                    ing1.setVisibility(View.VISIBLE);
-                                    ing1.setText(jobject.getString("strIngredient1") + ": " + jobject.getString("strMeasure1"));
+                                for(int i=1; i<=15; i++){
+                                    synchronized(lista) {
+                                        if (jobject.getString("strIngredient"+i) != null) {
+                                                ingr.add(jobject.getString("strIngredient" + i) + ": " + jobject.getString("strMeasure" + i));
+                                                Log.e("ingredientes:", jobject.getString("strIngredient" + i) + ": " + jobject.getString("strMeasure" + i));
+                                                lista.notifyAll();
+                                        }
+                                    }
                                 }
-                                if (jobject.getString("strIngredient2") != null) {
-                                    ing2.setVisibility(View.VISIBLE);
-                                    ing2.setText(jobject.getString("strIngredient2") + ": " + jobject.getString("strMeasure2"));
-                                }
+
 
                             } catch (final JSONException e) {
                                 Log.e(TAG, "Json parsing error: " + e.getMessage());
@@ -110,6 +118,9 @@ public class RandomDrink extends AppCompatActivity {
 
                     }
                 });
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(RandomDrink.this, android.R.layout.simple_list_item_1, ingr);
+        lista.setAdapter(adapter);
 
         requestQueue.add(objectRequest);
     }
