@@ -19,8 +19,8 @@
     <ImageView
         android:id="@+id/imagethumbactivity"
         android:layout_width="match_parent"
-        android:layout_height="264dp"
-        android:scaleType="centerCrop" />
+        android:layout_height="325dp"
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@+id/nome"
@@ -68,7 +68,7 @@
     <ListView
         android:id="@+id/lista"
         android:layout_width="match_parent"
-        android:layout_height="154dp"
+        android:layout_height="100dp"
         android:paddingLeft="28dp"
         android:textColor="@color/white"
         android:textColorHighlight="@color/orange3_pallet1"

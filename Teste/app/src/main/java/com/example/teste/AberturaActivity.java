@@ -33,7 +33,7 @@ public class AberturaActivity extends AppCompatActivity implements Runnable{
         i = 1;
         try{
             while(i<=100){
-                thread.sleep(25);
+                thread.sleep(10);
                 handler.post(new Runnable() {
                     @Override
                     public void run() {

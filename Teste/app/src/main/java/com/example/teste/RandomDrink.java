@@ -35,6 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class RandomDrink extends AppCompatActivity {
     private Toolbar toolbar;
 
@@ -55,6 +56,7 @@ public class RandomDrink extends AppCompatActivity {
 
         TextView Glasstype = (TextView) findViewById(R.id.glasstype);
         ImageView imagemthumb = (ImageView) findViewById(R.id.imagethumbactivity);
+
 
         ListView lista = (ListView) findViewById(R.id.lista);
         ArrayList<String> ingr = new ArrayList<>();
@@ -79,7 +81,9 @@ public class RandomDrink extends AppCompatActivity {
                                 JSONObject jobject = jarray.getJSONObject(0);
 
                                 toolbar.setTitle(jobject.getString("strCategory"));
+
                                 Picasso.get().load(jobject.getString("strDrinkThumb")).into(imagemthumb);
+
                                 nomeDrink.setText(jobject.getString("strDrink"));
                                 Glasstype.setText(jobject.getString("strGlass") + ", " + jobject.getString("strAlcoholic"));
                                 inst.setText(jobject.getString("strInstructions"));
@@ -125,28 +129,5 @@ public class RandomDrink extends AppCompatActivity {
         requestQueue.add(objectRequest);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.drink_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-            case R.id.action_favorite:
-                Toast.makeText(getApplicationContext(), "Setting favorite", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.action_share:
-                Toast.makeText(getApplicationContext(), "Search share", Toast.LENGTH_SHORT).show();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 }
