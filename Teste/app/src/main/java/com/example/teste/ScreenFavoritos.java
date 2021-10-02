@@ -31,14 +31,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class ScreenFavoritos extends AppCompatActivity {
 
     private String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_screen_favoritos);
         BottomNavigationView navView = findViewById(R.id.bottomNavigationView);
 
         ArrayList<String> id = new ArrayList<>();
@@ -62,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject jsonObj = new JSONObject(response.toString());
                         JSONArray drinksArray = jsonObj.getJSONArray("drinks");
 
-                        for (int i = 0; i < drinksArray.length(); i++) {
+
+                        //AQUI coloquei 2 (so pra diferenciar inicialmente), drinksArray.length()
+                        for (int i = 0; i < 2; i++) {
                             JSONObject drinksObject = drinksArray.getJSONObject(i);
 
                             id.add(drinksObject.getString("idDrink"));
@@ -94,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //  call the constructor of CustomAdapter to send the reference and data to Adapter
-        CustomAdapter customAdapter = new CustomAdapter(MainActivity.this, id, nome);
+        CustomAdapter customAdapter = new CustomAdapter(ScreenFavoritos.this, id, nome);
         recyclerView.setAdapter(customAdapter);
 
         requestQueue.add(objectRequest);
@@ -116,12 +118,12 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ScreenFavoritos.this, "Home", Toast.LENGTH_SHORT).show();
                         Intent intentHome = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intentHome);
                         break;
                     case R.id.Favoritos:
-                        Toast.makeText(MainActivity.this, "Favoritos", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ScreenFavoritos.this, "Favoritos", Toast.LENGTH_SHORT).show();
                         Intent Favoritosbottom = new Intent(getApplicationContext(), ScreenFavoritos.class);
                         startActivity(Favoritosbottom);
                         break;
