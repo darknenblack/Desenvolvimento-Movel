@@ -3,6 +3,7 @@ package com.example.teste;
 import static android.content.ContentValues.TAG;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -31,38 +32,67 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-
 public class TelaDrink extends AppCompatActivity {
-    private Toolbar toolbar;
+    Toolbar toolbar;
+    String ID_Buff;
+
+    TextView nomeDrink;
+    TextView Glasstype;
+    ImageView imagemthumb;
+
+    ListView lista;
+    ArrayList<String> ingr;
+
+    TextView inst;
+
+    RequestQueue requestQueue;
 
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_random_drink);
+        setContentView(R.layout.activity_tela_drink);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        //TextView idDrink = (TextView) findViewById(R.id.id);
-        TextView nomeDrink = (TextView) findViewById(R.id.nome);
 
-        TextView Glasstype = (TextView) findViewById(R.id.glasstype);
-        ImageView imagemthumb = (ImageView) findViewById(R.id.imagethumbactivity);
+        nomeDrink = (TextView) findViewById(R.id.nome2);
+        Glasstype = (TextView) findViewById(R.id.glasstype2);
+        imagemthumb = (ImageView) findViewById(R.id.imagethumbactivity2);
+
+        lista = (ListView) findViewById(R.id.lista2);
+        ingr = new ArrayList<>();
+
+        inst = (TextView) findViewById(R.id.inst2);
+
+        requestQueue = Volley.newRequestQueue(this);
 
 
-        ListView lista = (ListView) findViewById(R.id.lista);
-        ArrayList<String> ingr = new ArrayList<>();
+        getData();
+        setData(ID_Buff);
 
-        TextView inst = (TextView) findViewById(R.id.inst);
+    }
+
+    private void getData(){
+        if(getIntent().hasExtra("desc2bookmark")){
+
+            ID_Buff = getIntent().getStringExtra("desc2bookmark");
+
+        }else{
+            Toast.makeText(getApplicationContext(),
+                    "DADOS NAO ENCONTRADOS",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void setData(String ID){
 
         //Receber argumento aqui
-        String url = "www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + "11007";
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        String url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + ID;
 
         JsonObjectRequest objectRequest = new JsonObjectRequest(
                 Request.Method.GET, url, null,
@@ -77,13 +107,16 @@ public class TelaDrink extends AppCompatActivity {
 
                                 JSONObject jobject = jarray.getJSONObject(0);
 
-                                toolbar.setTitle(jobject.getString("strCategory"));
+                                //toolbar.setTitle(jobject.getString("strCategory"));
 
                                 Picasso.get().load(jobject.getString("strDrinkThumb")).into(imagemthumb);
 
                                 nomeDrink.setText(jobject.getString("strDrink"));
                                 Glasstype.setText(jobject.getString("strGlass") + ", " + jobject.getString("strAlcoholic"));
                                 inst.setText(jobject.getString("strInstructions"));
+
+                                Toast.makeText(getApplicationContext(),jobject.getString("strDrink"),
+                                        Toast.LENGTH_LONG).show();
 
                                 for(int i=1; i<=15; i++){
                                     synchronized(lista) {
@@ -124,6 +157,7 @@ public class TelaDrink extends AppCompatActivity {
         lista.setAdapter(adapter);
 
         requestQueue.add(objectRequest);
+
     }
 
 

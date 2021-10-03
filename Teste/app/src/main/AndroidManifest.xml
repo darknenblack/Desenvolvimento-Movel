@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Teste.NoActionBar">
-        <activity android:name=".TelaDrink"></activity>
+        <activity android:name=".TelaDrink"
+            android:parentActivityName=".ScreenFavoritos"></activity>
         <activity android:name=".ScreenFavoritos" />
         <activity
             android:name=".RandomDrink"

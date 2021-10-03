@@ -10,21 +10,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/layoutFavoritos">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="false"
+        android:innerRadius="00dp"
+        android:orientation="vertical"
+        android:shape="ring"
+        android:thicknessRatio="1.9"
+        app2:cardCornerRadius="15dp"
         app2:layout_constraintBottom_toBottomOf="parent"
         app2:layout_constraintEnd_toEndOf="parent"
         app2:layout_constraintStart_toStartOf="parent"
         app2:layout_constraintTop_toTopOf="parent"
+        card_view:cardBackgroundColor="#FF9800"
         card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintStart_toStartOf="parent"
         card_view:layout_constraintTop_toTopOf="parent">
-
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +39,6 @@
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="134dp"
             tools:layout_editor_absoluteY="30dp">
-
 
 
             <ImageView
@@ -54,7 +60,9 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="5dp"
                 android:text="TextView"
-                android:textSize="19sp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintStart_toEndOf="@+id/image2bookmark"
@@ -67,22 +75,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="TextView"
-                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintStart_toStartOf="@+id/nome2bookmark"
                 card_view:layout_constraintTop_toBottomOf="@+id/nome2bookmark"
                 card_view:layout_constraintVertical_bias="0.0" />
 
-            <CheckBox
-                android:id="@+id/checkBoxFavoritos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_marginRight="4dp"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent"
-                card_view:layout_constraintVertical_bias="0.481" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
