@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo_darkbackground"
+    android:orientation="vertical"
+    tools:context=".TelaDrink">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/fundo_darkbackground"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+    <ImageView
+        android:id="@+id/imagethumbactivity"
+        android:layout_width="match_parent"
+        android:layout_height="325dp"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="24dp"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/orange3_pallet1"
+        android:textSize="24dp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/glasstype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:paddingLeft="24dp"
+        android:textColor="#AAAAAA"
+        android:textSize="16dp"
+        android:textStyle="italic"></TextView>
+
+    <TextView
+        android:id="@+id/line"
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="13dp"
+        android:background="#626161"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/Ingredients_Tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="24dp"
+        android:text="@string/Ingredients"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/orange3_pallet1"
+        android:textSize="18dp"
+        android:textStyle="normal" />
+
+
+    <ListView
+        android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingLeft="28dp"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/orange3_pallet1"
+        android:textSize="13dp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/Instructions_Tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="24dp"
+        android:text="@string/Instructions"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/orange3_pallet1"
+        android:textSize="18dp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/inst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="28dp"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/orange3_pallet1"
+        android:textSize="13dp"
+        android:textStyle="normal"
+        android:visibility="gone" />
+
+</LinearLayout>
+
+
+
