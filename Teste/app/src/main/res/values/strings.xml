@@ -7,4 +7,21 @@
     <string name="title_activity_main2">MainActivity</string>
     <string name="Ingredients">Ingredients</string>
     <string name="Instructions">Instructions</string>
+    <string name="favoritos">Favoritos</string>
+
+    <string-array name="Favoritos_local_storage">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="Favoritos_descrip_local_storage">
+        <item>11</item>
+        <item>22</item>
+        <item>33</item>
+        <item>44</item>
+        <item>55</item>
+    </string-array>
 </resources>

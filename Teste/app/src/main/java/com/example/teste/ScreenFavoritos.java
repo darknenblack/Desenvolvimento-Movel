@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,9 +42,12 @@ public class ScreenFavoritos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_favoritos);
         BottomNavigationView navView = findViewById(R.id.bottomNavigationView);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbarbookmark);
+        setSupportActionBar(myToolbar);
 
         ArrayList<String> id = new ArrayList<>();
         ArrayList<String> nome = new ArrayList<>();
+        ArrayList<String> img = new ArrayList<>();
 
         String url = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
 
@@ -69,6 +74,9 @@ public class ScreenFavoritos extends AppCompatActivity {
 
                             id.add(drinksObject.getString("idDrink"));
                             nome.add(drinksObject.getString("strDrink"));
+                            img.add(drinksObject.getString("strDrinkThumb") + "/preview");
+                            //Picasso.get().load(jobject.getString("strDrinkThumb")).into(imagemthumb);
+
                         }
 
                         recyclerView.getAdapter().notifyDataSetChanged();
@@ -96,8 +104,8 @@ public class ScreenFavoritos extends AppCompatActivity {
 
 
         //  call the constructor of CustomAdapter to send the reference and data to Adapter
-        CustomAdapter customAdapter = new CustomAdapter(ScreenFavoritos.this, id, nome);
-        recyclerView.setAdapter(customAdapter);
+        AdapterBookmark adapterbookmark = new AdapterBookmark(ScreenFavoritos.this, id, nome,img);
+        recyclerView.setAdapter(adapterbookmark);
 
         requestQueue.add(objectRequest);
 
