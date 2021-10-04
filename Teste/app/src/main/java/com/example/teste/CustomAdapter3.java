@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
+public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.MyViewHolder> {
 
     //O Card deve receber: Imagem, título, sub-título.
     ArrayList<String> id;
@@ -25,7 +25,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     ArrayList<String> subtitle;
     Context context;
 
-    public CustomAdapter(Context context, ArrayList<String> id, ArrayList<String> img, ArrayList<String> title, ArrayList<String> subtitle) {
+    public CustomAdapter3(Context context, ArrayList<String> id, ArrayList<String> img, ArrayList<String> title, ArrayList<String> subtitle) {
         this.context = context;
         this.id = id;
         this.img = img;

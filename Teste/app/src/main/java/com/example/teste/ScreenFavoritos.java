@@ -67,7 +67,6 @@ public class ScreenFavoritos extends AppCompatActivity {
                         JSONObject jsonObj = new JSONObject(response.toString());
                         JSONArray drinksArray = jsonObj.getJSONArray("drinks");
 
-
                         //AQUI coloquei 2 (so pra diferenciar inicialmente), drinksArray.length()
                         for (int i = 0; i < 2; i++) {
                             JSONObject drinksObject = drinksArray.getJSONObject(i);
@@ -76,7 +75,6 @@ public class ScreenFavoritos extends AppCompatActivity {
                             nome.add(drinksObject.getString("strDrink"));
                             img.add(drinksObject.getString("strDrinkThumb") + "/preview");
                             //Picasso.get().load(jobject.getString("strDrinkThumb")).into(imagemthumb);
-
                         }
 
                         recyclerView.getAdapter().notifyDataSetChanged();

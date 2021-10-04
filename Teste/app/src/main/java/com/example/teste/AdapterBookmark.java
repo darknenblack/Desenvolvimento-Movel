@@ -48,9 +48,7 @@ public class AdapterBookmark extends RecyclerView.Adapter<AdapterBookmark.MyView
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, TelaDrink.class);
-
                 intent.putExtra("desc2bookmark", id.get(position));
-
                 context.startActivity(intent);
             }
         });

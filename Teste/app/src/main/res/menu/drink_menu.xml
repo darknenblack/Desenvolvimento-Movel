@@ -6,7 +6,7 @@
  
     <item
         android:id="@+id/action_share"
-        android:icon="@drawable/ic_bseline_share_24"
+        android:icon="@drawable/ic_baseline_share_24"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:orderInCategory="200"

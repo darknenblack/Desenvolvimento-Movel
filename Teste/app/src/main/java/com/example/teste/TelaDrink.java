@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -53,28 +54,35 @@ public class TelaDrink extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_drink);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
 
-        nomeDrink = (TextView) findViewById(R.id.nome2);
-        Glasstype = (TextView) findViewById(R.id.glasstype2);
-        imagemthumb = (ImageView) findViewById(R.id.imagethumbactivity2);
+        nomeDrink = findViewById(R.id.nome2);
+        Glasstype = findViewById(R.id.glasstype2);
+        imagemthumb = findViewById(R.id.imagethumbactivity2);
 
         lista = (ListView) findViewById(R.id.lista2);
         ingr = new ArrayList<>();
 
         inst = (TextView) findViewById(R.id.inst2);
 
-        requestQueue = Volley.newRequestQueue(this);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
+        requestQueue = Volley.newRequestQueue(this);
 
         getData();
         setData(ID_Buff);
-
     }
 
     private void getData(){
@@ -107,7 +115,7 @@ public class TelaDrink extends AppCompatActivity {
 
                                 JSONObject jobject = jarray.getJSONObject(0);
 
-                                //toolbar.setTitle(jobject.getString("strCategory"));
+                                toolbar.setTitle(jobject.getString("strCategory"));
 
                                 Picasso.get().load(jobject.getString("strDrinkThumb")).into(imagemthumb);
 
@@ -121,6 +129,7 @@ public class TelaDrink extends AppCompatActivity {
                                 for(int i=1; i<=15; i++){
                                     synchronized(lista) {
                                         if (jobject.getString("strIngredient"+i) != null) {
+
                                             ingr.add(jobject.getString("strIngredient" + i) + ": " + jobject.getString("strMeasure" + i));
                                             Log.e("ingredientes:", jobject.getString("strIngredient" + i) + ": " + jobject.getString("strMeasure" + i));
                                             lista.notifyAll();
@@ -159,6 +168,5 @@ public class TelaDrink extends AppCompatActivity {
         requestQueue.add(objectRequest);
 
     }
-
 
 }
