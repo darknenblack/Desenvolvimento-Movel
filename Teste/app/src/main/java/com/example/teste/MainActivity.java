@@ -207,12 +207,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
                         Intent intentHome = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intentHome);
                         break;
                     case R.id.Favoritos:
-                        Toast.makeText(MainActivity.this, "Favoritos", Toast.LENGTH_SHORT).show();
                         Intent Favoritosbottom = new Intent(getApplicationContext(), ScreenFavoritos.class);
                         startActivity(Favoritosbottom);
                         break;

@@ -5,8 +5,8 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_main2">MainActivity</string>
-    <string name="Ingredients">Ingredients</string>
-    <string name="Instructions">Instructions</string>
+    <string name="Ingredients">Ingredientes</string>
+    <string name="Instructions">Modo de preparo</string>
     <string name="favoritos">Favoritos</string>
 
     <string-array name="Favoritos_local_storage">

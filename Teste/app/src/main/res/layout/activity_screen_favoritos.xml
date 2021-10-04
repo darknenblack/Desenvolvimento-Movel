@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="bottom"
-            app:backgroundTint="@color/orange3_pallet1"
+            app:backgroundTint="@color/background_bottom_nav"
             app:fabCradleMargin="10dp"
             app:fabCradleRoundedCornerRadius="10dp"
             app:fabCradleVerticalOffset="10dp">
