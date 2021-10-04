@@ -14,4 +14,7 @@
     <color name="fundo_menu_bottom_gray">#6B6B6B</color>
     <!--Paleta 1 do FIGMA, LARANJA 3-->
     <color name="orange3_pallet1">#C9661F</color>
+    <color name="background_cards">#182930</color>
+    <color name="branco">#FFFFFF</color>
+    <color name="background_bottom_nav">#232323</color>
 </resources>

@@ -124,8 +124,6 @@ public class TelaDrink extends AppCompatActivity {
                                 Glasstype.setText(jobject.getString("strGlass") + ", " + jobject.getString("strAlcoholic"));
                                 inst.setText(jobject.getString("strInstructions"));
 
-                                Toast.makeText(getApplicationContext(),jobject.getString("strDrink"),
-                                        Toast.LENGTH_LONG).show();
 
                                 for(int i=1; i<=15; i++){
                                     synchronized(lista) {

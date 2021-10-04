@@ -124,12 +124,10 @@ public class ScreenFavoritos extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        Toast.makeText(ScreenFavoritos.this, "Home", Toast.LENGTH_SHORT).show();
                         Intent intentHome = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intentHome);
                         break;
                     case R.id.Favoritos:
-                        Toast.makeText(ScreenFavoritos.this, "Favoritos", Toast.LENGTH_SHORT).show();
                         Intent Favoritosbottom = new Intent(getApplicationContext(), ScreenFavoritos.class);
                         startActivity(Favoritosbottom);
                         break;
