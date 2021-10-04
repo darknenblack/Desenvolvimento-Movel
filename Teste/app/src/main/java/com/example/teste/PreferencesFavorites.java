@@ -29,7 +29,7 @@ public class PreferencesFavorites {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREF_SETTINGS, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putInt("drink_id_" + getPosition(), id);
+        //editor.putInt("drink_id_" + getPosition(), id);
     }
 
     private int getString() {
