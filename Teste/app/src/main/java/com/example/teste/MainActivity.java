@@ -176,6 +176,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        requestQueue.add(objectRequest);
+        requestQueue2.add(objectRequest2);
 
         //  call the constructor of CustomAdapter to send the reference and data to Adapter
         CustomAdapter customAdapter = new CustomAdapter(MainActivity.this, id, img, title, subtitle);
@@ -187,8 +189,7 @@ public class MainActivity extends AppCompatActivity {
         CustomAdapter customAdapter3 = new CustomAdapter(MainActivity.this, id3, img3, title3, subtitle3);
         recyclerView3.setAdapter(customAdapter3);
 
-        requestQueue.add(objectRequest);
-        requestQueue2.add(objectRequest2);
+
 
         FloatingActionButton randomButton = findViewById(R.id.randomButton);
 

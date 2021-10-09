@@ -77,6 +77,17 @@
             android:background="@color/fundo_darkbackground"
             android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
+        <TextView
+            android:id="@+id/Textoteste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:text="Ideal para o momento"
+            android:textColor="#A6A6A6"
+            android:textSize="20sp" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
