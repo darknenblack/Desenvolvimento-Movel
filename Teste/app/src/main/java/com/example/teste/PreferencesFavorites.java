@@ -46,6 +46,8 @@ public class PreferencesFavorites {
         editor.putInt("position", getPosition() + 1);
     }
 
+
+
     private int getPosition() {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREF_SETTINGS, Context.MODE_PRIVATE);
 
