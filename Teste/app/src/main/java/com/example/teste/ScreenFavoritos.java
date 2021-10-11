@@ -1,23 +1,20 @@
 package com.example.teste;
 
 import android.content.Intent;
+import android.hardware.usb.UsbRequest;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,25 +22,25 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.teste.data.User;
 import com.example.teste.data.UserDatabase;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import static java.lang.Thread.sleep;
+import java.util.List;
 
 public class ScreenFavoritos extends AppCompatActivity {
 
     private String TAG = MainActivity.class.getSimpleName();
-    TextView Textoteste;
     ArrayList<Integer> favoritos = new ArrayList<Integer>();
+    private AdapterBD userListAdapter;
+    List<User> userList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,28 +56,40 @@ public class ScreenFavoritos extends AppCompatActivity {
         Integer i;
 
         //Externo database, pegar o q esta no database e alimentar o vetor favoritos
-        Textoteste = findViewById(R.id.Textoteste);
-        UserDatabase db = Room.databaseBuilder(getApplicationContext(),
-                UserDatabase.class, "Favoritos-name").build();
 
-        db.UserDao().getAll();
-
-        //TERMINAR ISSO DAQUI  FAZER O A CONSULTA NO BANCO E ALIMENTAR O VETOR:)
-
-        favoritos.add(11007);
-        favoritos.add(13328);
-        favoritos.add(17250);
-        favoritos.add(11320);
-        favoritos.add(178346);
+        //Alimentando o banco, caso vazio
+        try{
+            saveNewUser("11007");
+            saveNewUser("13328");
+            saveNewUser("17250");
+            saveNewUser("178346");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
-
-
-
+        //RECYCLE 1
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        AdapterBookmark adapterbookmark = new AdapterBookmark(ScreenFavoritos.this, id, nome, img);
+        recyclerView.setAdapter(adapterbookmark);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
+        RecyclerView recyclerView2 = findViewById(R.id.recyclerView5);
+        userListAdapter = new AdapterBD(this);
+        recyclerView2.setAdapter(userListAdapter);
+
+
+        loadUserList();
+
+        for(i = 0; i < TamanhoBanco(); i++){
+            Log.e("IDS NO BANCO", userList.get(i).ID.toString());
+            favoritos.add(Integer.parseInt(userList.get(i).ID));
+        }
 
 
         //FOR AQUI, percorrendo o vetor com os IDS salvos
@@ -130,17 +139,6 @@ public class ScreenFavoritos extends AppCompatActivity {
             requestQueue.add(objectRequest);
         }
 
-        /*IGNORAR ISSO AQUI
-        try {
-            sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
-
-
-        //  call the constructor of CustomAdapter to send the reference and data to Adapter
-        AdapterBookmark adapterbookmark = new AdapterBookmark(ScreenFavoritos.this, id, nome, img);
-        recyclerView.setAdapter(adapterbookmark);
 
         FloatingActionButton randomButton = findViewById(R.id.randomButton);
 
@@ -171,8 +169,34 @@ public class ScreenFavoritos extends AppCompatActivity {
                 return true;
             }
         });
-
-
     }
 
+
+    private void loadUserList() {
+        UserDatabase db = UserDatabase.getDbInstance(this.getApplicationContext());
+        userList = db.userDao().getIDS();
+        userListAdapter.setUserList(userList);
+    }
+
+    private Integer TamanhoBanco() {
+        UserDatabase db = UserDatabase.getDbInstance(this.getApplicationContext());
+        Integer usertamanho = db.userDao().getTamanho();
+        return usertamanho;
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == 100) {
+            loadUserList();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void saveNewUser(String IDs) {
+        UserDatabase db  = UserDatabase.getDbInstance(this.getApplicationContext());
+        User user = new User();
+        user.ID = IDs;
+        db.userDao().insertUsers(user);
+    }
 }

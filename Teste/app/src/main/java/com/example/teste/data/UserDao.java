@@ -11,27 +11,17 @@ import java.util.List;
 
 @Dao
 public interface UserDao {
-    @Query("SELECT * FROM user_table")
+    @Query("SELECT * FROM user_table ORDER BY ID ASC")
     List<User> getAll();
 
-    @Query("SELECT * FROM user_table WHERE uid IN (:userIds)")
-    List<User> loadAllByIds(int[] userIds);
+    @Query("SELECT ID FROM user_table ORDER BY ID ASC")
+    List<User> getIDS();
 
-    @Query("SELECT * FROM user_table WHERE first_name LIKE :first AND " +
-            "last_name LIKE :last LIMIT 1")
-    User findByName(String first, String last);
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insertUsers(User... users);
+    @Query("SELECT COUNT(*) FROM user_table")
+    Integer getTamanho();
 
     @Insert
-    public void insertBothUsers(User user1, User user2);
-
-    @Insert
-    public void insertUsersAndFriends(User user, List<User> friends);
-
-    @Update
-    public void updateUsers(User... users);
+    void insertUsers(User... users);
 
     @Delete
     void delete(User user);
