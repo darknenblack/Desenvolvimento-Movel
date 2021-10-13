@@ -10,7 +10,6 @@
         android:id="@+id/placeholder"
         android:title="" />
 
-
     <item
         android:id="@+id/Favoritos"
         android:icon="@drawable/ic_baseline_favorite_24"

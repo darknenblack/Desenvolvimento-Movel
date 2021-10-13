@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ActivityMain">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".MainActivity">
+        tools:context=".ActivityMain">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/randomButton"
@@ -45,6 +45,8 @@
                 android:layout_height="match_parent"
                 android:paddingRight="25dp"
                 android:theme="@style/Theme.Fab_Bottom_app_bar"
+                app:itemIconTint="@color/bottom_nav_color"
+                app:itemTextColor="@color/bottom_nav_color"
                 app:labelVisibilityMode="auto"
                 app:menu="@menu/bottom_nav_menu"
                 tools:visibility="visible" />

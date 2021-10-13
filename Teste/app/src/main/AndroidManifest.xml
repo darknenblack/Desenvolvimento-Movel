@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.teste">
+    package="com.example.misturae">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,16 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Teste.NoActionBar">
         <activity
-            android:name=".TelaDrink"
+            android:name="com.example.misturae.ActivityDrink"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <!--android:parentActivityName=".ScreenFavoritos">-->
         </activity>
         <activity
-            android:name=".ScreenFavoritos"
+            android:name="com.example.misturae.ActivityFavorites"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RandomDrink"
+            android:name="com.example.misturae.RandomDrink"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -32,11 +32,11 @@
             android:resource="@xml/actions" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.misturae.ActivityMain"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".AberturaActivity"
+            android:name="com.example.misturae.ActivitySplash"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Teste.NoActionBar">
             <intent-filter>

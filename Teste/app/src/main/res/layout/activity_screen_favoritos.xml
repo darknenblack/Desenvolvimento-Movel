@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ScreenFavoritos">
+    tools:context=".ActivityFavorites">
 
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/black"
+        android:background="#161717"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".ScreenFavoritos">
+        tools:context=".ActivityFavorites">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/randomButton"
@@ -46,6 +46,8 @@
                 android:layout_height="match_parent"
                 android:paddingRight="25dp"
                 android:theme="@style/Theme.Fab_Bottom_app_bar"
+                app:itemIconTint="@color/bottom_nav_color"
+                app:itemTextColor="@color/bottom_nav_color"
                 app:labelVisibilityMode="auto"
                 app:menu="@menu/bottom_nav_menu"
                 tools:visibility="visible" />
@@ -67,15 +69,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        tools:visibility="visible"
-        tools:context=".ScreenFavoritos">
+        tools:context=".ActivityFavorites"
+        tools:visibility="visible">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarbookmark"
+        <include layout="@layout/main_toolbar" />
+
+        <!-- <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="There's nothing here :("/> -->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/fundo_darkbackground"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="16dp" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView5"
@@ -91,9 +102,9 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
-            android:layout_marginRight="24dp" />
+            android:layout_marginRight="8dp" />
 
     </LinearLayout>
 
