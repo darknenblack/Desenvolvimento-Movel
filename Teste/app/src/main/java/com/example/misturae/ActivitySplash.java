@@ -33,7 +33,7 @@ public class ActivitySplash extends AppCompatActivity implements Runnable{
         i = 1;
         try{
             while(i<=100){
-                thread.sleep(1);
+                thread.sleep(10);
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
