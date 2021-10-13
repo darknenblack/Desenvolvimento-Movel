@@ -11,9 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.teste.data.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdapterBookmark extends RecyclerView.Adapter<AdapterBookmark.MyViewHolder>{
 
@@ -42,6 +45,7 @@ public class AdapterBookmark extends RecyclerView.Adapter<AdapterBookmark.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.vid.setText(id.get(position));
         holder.vnome.setText(nome.get(position));
+
         Picasso.get().load(img.get(position)).into(holder.imagedrink);
 
         holder.LayoutFavoritos.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +61,7 @@ public class AdapterBookmark extends RecyclerView.Adapter<AdapterBookmark.MyView
 
     @Override
     public int getItemCount() {
+
         return img.size();
     }
 
@@ -74,7 +79,6 @@ public class AdapterBookmark extends RecyclerView.Adapter<AdapterBookmark.MyView
             vnome = (TextView) itemView.findViewById(R.id.nome2bookmark);
             imagedrink = (ImageView) itemView.findViewById(R.id.image2bookmark);
             LayoutFavoritos =itemView.findViewById(R.id.layoutFavoritos);
-
         }
     }
 }

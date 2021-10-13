@@ -176,6 +176,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        requestQueue.add(objectRequest);
+        requestQueue2.add(objectRequest2);
 
         //  call the constructor of CustomAdapter to send the reference and data to Adapter
         CustomAdapter customAdapter = new CustomAdapter(MainActivity.this, id, img, title, subtitle);
@@ -187,8 +189,7 @@ public class MainActivity extends AppCompatActivity {
         CustomAdapter customAdapter3 = new CustomAdapter(MainActivity.this, id3, img3, title3, subtitle3);
         recyclerView3.setAdapter(customAdapter3);
 
-        requestQueue.add(objectRequest);
-        requestQueue2.add(objectRequest2);
+
 
         FloatingActionButton randomButton = findViewById(R.id.randomButton);
 
@@ -207,12 +208,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
                         Intent intentHome = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intentHome);
                         break;
                     case R.id.Favoritos:
-                        Toast.makeText(MainActivity.this, "Favoritos", Toast.LENGTH_SHORT).show();
                         Intent Favoritosbottom = new Intent(getApplicationContext(), ScreenFavoritos.class);
                         startActivity(Favoritosbottom);
                         break;
