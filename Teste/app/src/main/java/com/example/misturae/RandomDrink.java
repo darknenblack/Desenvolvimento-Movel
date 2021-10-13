@@ -52,6 +52,8 @@ public class RandomDrink extends AppCompatActivity {
         TextView Glasstype = (TextView) findViewById(R.id.glasstype);
         ImageView imagemthumb = (ImageView) findViewById(R.id.imagethumbactivity);
 
+        //TextView instrucao = (TextView) findViewById(R.id.inst);
+
 
         ListView lista = (ListView) findViewById(R.id.lista);
         ArrayList<String> ingr = new ArrayList<>();
@@ -86,8 +88,8 @@ public class RandomDrink extends AppCompatActivity {
                                 for(int i=1; i<=15; i++){
                                     synchronized(lista) {
                                         if (jobject.getString("strIngredient"+i) != null) {
-                                                ingr.add(jobject.getString("strIngredient" + i) + ": " + jobject.getString("strMeasure" + i));
-                                                Log.e("ingredientes:", jobject.getString("strIngredient" + i) + ": " + jobject.getString("strMeasure" + i));
+                                                ingr.add(jobject.getString("strMeasure" + i) + ": " + jobject.getString("strIngredient" + i));
+                                                Log.e("ingredientes:", jobject.getString("strMeasure" + i) + ": " + jobject.getString("strIngredient" + i));
                                                 lista.notifyAll();
                                         }
                                     }
