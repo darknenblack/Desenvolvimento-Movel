@@ -4,17 +4,25 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/drawable-anydpi/ic_baseline_share_24.xml" value="0.3828125" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/drawable/animation.xml" value="0.2625" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2625" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2625" />
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/activity_random_drink.xml" value="0.26132246376811596" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/activity_screen_favoritos.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/activity_tela_drink.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/fragment_dashboard.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/fragment_notifications.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/main_toolbar.xml" value="0.26132246376811596" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/newrow.xml" value="0.67" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/recycler_row.xml" value="0.3596014492753623" />
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/rowlayout.xml" value="0.5" />
-        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/rowlayout_favoritos.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/layout/rowlayout_favoritos.xml" value="0.5" />
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/menu/drink_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/Teste/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22135416666666666" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.37135416666666665" />
