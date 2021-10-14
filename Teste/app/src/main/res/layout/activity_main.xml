@@ -87,7 +87,7 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginRight="24dp"
-                    android:text="Ideal para o momento"
+                    android:text="The best for this moment"
                     android:textColor="#A6A6A6"
                     android:textSize="20sp" />
 
@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="24dp"
                     android:layout_marginRight="24dp"
-                    android:text="Para curtir o fim de semana"
+                    android:text="To enjoy the weekend"
                     android:textColor="#A6A6A6"
                     android:textSize="20sp" />
 
@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="24dp"
                     android:layout_marginRight="24dp"
-                    android:text="Sem álcool"
+                    android:text="Non alcoholic"
                     android:textColor="#A6A6A6"
                     android:textSize="20sp" />
 

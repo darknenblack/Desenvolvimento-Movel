@@ -34,8 +34,14 @@
         <entry key="app/src/main/res/layout/activity_abertura.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_random_drink.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_screen_favoritos.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/activity_tela_drink.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/main_toolbar.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/recycler_row.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/rowlayout.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/rowlayout_favoritos.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/menu/drink_menu.xml" value="0.19791666666666666" />
       </map>

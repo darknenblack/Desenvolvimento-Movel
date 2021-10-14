@@ -37,6 +37,11 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.MyView
         this.subtitle = subtitle;
     }
 
+    public AdapterCategory(Context context, ArrayList<String> id) {
+        this.context = context;
+        this.id = id;
+    }
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.rowlayout, parent, false);

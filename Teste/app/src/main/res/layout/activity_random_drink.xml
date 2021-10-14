@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/fundo_darkbackground"
     android:fillViewport="false"
     android:scrollbarThumbVertical="@null"
@@ -13,7 +14,6 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/fundo_darkbackground"
         android:orientation="vertical"
         tools:context=".RandomDrink">
 
@@ -21,8 +21,22 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/fundo_darkbackground"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+            android:theme="@style/ThemeOverlay.AppCompat.Dark" >
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/isFavDrink"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/ic_baseline_favorite_border_24" />
+        </androidx.appcompat.widget.Toolbar>
 
 
         <ImageView
@@ -76,13 +90,9 @@
 
         <ListView
             android:id="@+id/lista"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:paddingLeft="28dp"
-            android:textColor="@color/white"
-            android:textColorHighlight="@color/orange3_pallet1"
-            android:textSize="13dp"
-            android:textStyle="normal" />
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/Instructions_Tittle"
@@ -99,13 +109,13 @@
         <TextView
             android:id="@+id/inst"
             android:layout_width="300dp"
-            android:layout_height="78dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:paddingLeft="28dp"
             android:textColor="@color/orange3_pallet1"
             android:textColorHighlight="@color/orange3_pallet1"
-            android:textSize="13dp"
+            android:textSize="15dp"
             android:textStyle="normal" />
 
 

@@ -74,11 +74,6 @@
 
         <include layout="@layout/main_toolbar" />
 
-        <!-- <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="There's nothing here :("/> -->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView5"
             android:layout_width="match_parent"

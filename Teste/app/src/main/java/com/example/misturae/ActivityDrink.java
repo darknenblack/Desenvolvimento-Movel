@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,6 +24,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.misturae.data.User;
+import com.example.misturae.data.UserDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -33,7 +36,7 @@ import java.util.ArrayList;
 
 
 public class ActivityDrink extends AppCompatActivity {
-    Toolbar toolbar;
+    private Toolbar toolbar;
     String ID_Buff;
 
     TextView nomeDrink;
@@ -53,7 +56,7 @@ public class ActivityDrink extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_drink);
 
-        toolbar = findViewById(R.id.toolbar2);
+        toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
@@ -69,6 +72,8 @@ public class ActivityDrink extends AppCompatActivity {
 
         inst = (TextView) findViewById(R.id.inst2);
 
+        ImageButton favButton = findViewById(R.id.isFavDrink);
+
         //
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -83,6 +88,22 @@ public class ActivityDrink extends AppCompatActivity {
 
         getData();
         setData(ID_Buff);
+
+
+        favButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    view.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                    saveNewUser(ID_Buff);
+                    Toast.makeText(getApplicationContext(), "Success =)", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    view.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                    removeUser(ID_Buff);
+                    Toast.makeText(getApplicationContext(), "Deleted =(", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void getData(){
@@ -126,14 +147,16 @@ public class ActivityDrink extends AppCompatActivity {
 
                                 for(int i=1; i<=15; i++){
                                     synchronized(lista) {
-                                        if (jobject.getString("strIngredient"+i) != null) {
-
+                                        if (jobject.getString("strIngredient"+i) != "null" ){
                                             ingr.add(jobject.getString("strIngredient" + i) + ": " + jobject.getString("strMeasure" + i));
                                             Log.e("ingredientes:", jobject.getString("strIngredient" + i) + ": " + jobject.getString("strMeasure" + i));
                                             lista.notifyAll();
                                         }
                                     }
                                 }
+
+                                ArrayAdapter<String> adapter = new ArrayAdapter<String>(ActivityDrink.this, R.layout.list_item, ingr);
+                                lista.setAdapter(adapter);
 
 
                             } catch (final JSONException e) {
@@ -160,11 +183,25 @@ public class ActivityDrink extends AppCompatActivity {
                     }
                 });
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(ActivityDrink.this, android.R.layout.simple_list_item_1, ingr);
-        lista.setAdapter(adapter);
-
         requestQueue.add(objectRequest);
 
     }
 
+
+    private void saveNewUser(String IDs) {
+        UserDatabase db  = UserDatabase.getDbInstance(getApplicationContext());
+        User user = new User();
+        user.ID = IDs;
+        db.userDao().insertUsers(user);
+    }
+
+    private void removeUser(String IDs) {
+        UserDatabase db  = UserDatabase.getDbInstance(getApplicationContext());
+        User user = new User();
+        user.ID = IDs;
+        db.userDao().delete(user);
+    }
+
 }
+
+

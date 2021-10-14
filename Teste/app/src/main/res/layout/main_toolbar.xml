@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="56dp">
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/ivMenu"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -17,14 +17,13 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_baseline_menu_24" />
+            android:src="@drawable/ic_baseline_menu_24" /> -->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="24dp"
-            android:layout_toRightOf="@id/ivMenu"
             android:text="Misturaê"
             android:textColor="#FFF"
             android:textSize="20dp" />

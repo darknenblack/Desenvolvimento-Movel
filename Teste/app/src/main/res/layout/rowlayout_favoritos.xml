@@ -69,7 +69,7 @@
             android:ellipsize="end"
             android:maxWidth="190dp"
             android:maxLines="1"
-            android:text="#Misturaê #BoraBeber #Compartilha"
+            android:text="#Misturaê #Let'sDrink #Share"
             android:textColor="#555"
             android:textSize="14dp"
             android:textStyle="italic" />
@@ -92,19 +92,6 @@
             android:layout_marginRight="16dp"
             android:layout_toLeftOf="@id/ivFavCardHome_favScreen"
             android:src="@drawable/ic_baseline_share_24" />
-
-        <!--<TextView
-            android:id="@+id/id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/nome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000"
-            android:textSize="15sp" />-->
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
