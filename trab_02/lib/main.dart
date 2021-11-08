@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:trab_02/provider/pacotes.dart';
+import 'package:trab_02/routes/app_routes.dart';
+import 'package:trab_02/views/pacote_card.dart';
+import 'package:trab_02/views/pacote_form.dart';
 import '../views/pacotes_list.dart';
 
 void main() {
@@ -9,14 +14,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+            create: (ctx) => Pacotes(),
+        ),
+      ],
+      child: MaterialApp(
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        routes: {
+            AppRoutes.HOME: (_) => PacoteList(),
+            AppRoutes.PACOTE_FORM: (_) => PacoteForm(),
+            AppRoutes.PACOTE_CARD: (_) => PacoteCard(),
+        },
+        debugShowCheckedModeBanner: false,
       ),
-      home: PacoteList(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -45,22 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: (){},
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.

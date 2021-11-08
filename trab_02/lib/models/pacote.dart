@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Pacote {
   final String id;
@@ -7,6 +7,7 @@ class Pacote {
   final String local;
   final String data;
   final String hora;
+  final String codigo;
 
   const Pacote({
     required this.id,
@@ -14,6 +15,14 @@ class Pacote {
     required this.descricao,
     required this.data,
     required this.hora,
-    required this.local
+    required this.local,
+    required this.codigo,
   });
+
+  factory Pacote.fromJson(Map<String, dynamic> json) {
+    return Pacote(
+      codigo: json['codObjeto'],
+      id: '', hora: '', descricao: '', local: '', data: '', name: '',
+    );
+  }
 }

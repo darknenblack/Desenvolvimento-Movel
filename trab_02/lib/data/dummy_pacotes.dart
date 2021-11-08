@@ -7,7 +7,8 @@ const dummy_pacotes = {
       descricao: 'Objeto saiu para entrega ao destinatário',
       local: 'Campinas',
       data: '02/11/2021',
-      hora:  '15:78'
+      hora:  '15:78',
+      codigo: ''
   ),
   '2': const Pacote(
       id: '2',
@@ -15,6 +16,7 @@ const dummy_pacotes = {
       descricao: 'Objeto saiu para entrega ao destinatário',
       local: 'Campinas',
       data: '02/11/2021',
-      hora:  '15:78'
+      hora:  '15:78',
+      codigo: ''
   ),
 };

@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.trab_02">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="trab_02"
         android:icon="@mipmap/ic_launcher">
