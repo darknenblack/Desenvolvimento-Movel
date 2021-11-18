@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:trab_02/models/pacote.dart';
+import 'package:trab_02/provider/pacotes.dart';
 import 'package:trab_02/routes/app_routes.dart';
 import '../models/my_icons_icons.dart';
 
@@ -17,8 +19,8 @@ class PacoteTile extends StatelessWidget {
 
       child: ListTile(
         leading: icone,
-        title: Text(pacote.name),
-        subtitle: Text(pacote.descricao),
+        title: Text(pacote.name!),
+        subtitle: Text(pacote.descricao!),
         onTap: (){
           Navigator.of(context).pushNamed(
               AppRoutes.PACOTE_CARD,
@@ -28,7 +30,27 @@ class PacoteTile extends StatelessWidget {
 
         trailing: IconButton(
             onPressed: () {
-              //pacotes.remove(pacotes.byIndex(1));
+              showDialog(
+                  context: context,
+                  builder: (ctx) => AlertDialog(
+                    title: Text('Excluir pacote'),
+                    actions:<Widget> [
+                      FlatButton(
+                        onPressed: (){
+                          Provider.of<Pacotes>(context, listen: false).remove(pacote);
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('Sim'),
+                      ),
+                      FlatButton(
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('Não'),
+                      ),
+                    ],
+                  )
+              );
             },
             icon: Icon(Icons.delete),
             color:Colors.lightBlue),

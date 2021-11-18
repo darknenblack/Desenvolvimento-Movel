@@ -1,8 +1,12 @@
 import 'dart:convert';
+import 'dart:developer';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:trab_02/models/pacote.dart';
+import 'package:trab_02/provider/pacotes.dart';
 
 class PacoteForm extends StatelessWidget {
   final _form = GlobalKey<FormState>();
@@ -20,6 +24,18 @@ class PacoteForm extends StatelessWidget {
 
               if(isValid) {
                 _form.currentState!.save();
+
+                Provider.of<Pacotes>(context, listen:false).put(Pacote(
+                  id: _formData['id'] ?? '0',
+                  name: _formData['name'] ?? 'vazio',
+                  descricao: _formData['descricao'] ?? 'vazio',
+                  local: _formData['local'] ?? 'vazio',
+                  data: _formData['data'] ?? 'vazio',
+                  hora: _formData['hora'] ?? 'vazio',
+                  codigo: _formData['codigo'] ?? 'vazio',
+                ),
+                );
+
                 Navigator.of(context).pop();
               }
             },
@@ -35,20 +51,18 @@ class PacoteForm extends StatelessWidget {
             children: <Widget>[
               TextFormField(
                 decoration: InputDecoration(labelText: 'Nome: '),
-                onSaved: (value) => _formData['name'] = value!,
-                validator: (value){
-                  if(value == null || value.trim().isEmpty){
+                onSaved:(value) => _formData['name'] = value!,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
                     return 'Campo brigatório';
                   }
                 },
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Código: '),
-                onSaved: (value){
-                  fetchAlbum(value!);
-                },
-                validator: (value){
-                  if(value == null || value.trim().isEmpty){
+                onSaved: (value) => _formData['name'] = value!,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
                     return 'Campo brigatório';
                   }
                 },
@@ -60,18 +74,13 @@ class PacoteForm extends StatelessWidget {
     );
   }
 
-  Future<Pacote> fetchAlbum(String value) async {
-    final response = await http
-        .get(Uri.parse('https://proxyapp.correios.com.br/v1/sro-rastro/'+value));
+  Future<Map> getData(String value) async {
+    http.Response response = await http.get(Uri.parse('https://proxyapp.correios.com.br/v1/sro-rastro/%27QH797101600BR'));
 
-    if (response.statusCode == 200) {
-      // If the server did return a 200 OK response,
-      // then parse the JSON.
-      return Pacote.fromJson(jsonDecode(response.body));
-    } else {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      throw Exception('Failed to load album');
-    }
+    log(json.decode(response.body).toString());
+    //print(json.decode(response.body));
+    return json.decode(response.body);
   }
+
 }
+

@@ -2,10 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:trab_02/models/pacote.dart';
 import 'package:trab_02/provider/pacotes.dart';
 import 'package:trab_02/routes/app_routes.dart';
-import 'package:trab_02/views/pacote_card.dart';
 import '../components/pacote_tile.dart';
 
 class PacoteList extends StatelessWidget {

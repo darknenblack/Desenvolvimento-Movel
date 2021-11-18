@@ -22,9 +22,9 @@ class Pacotes with ChangeNotifier{
   //inclui ou altera um pacote
   void put(Pacote pacote){
     
-    if(pacote.id.trim().isNotEmpty &&
+    if(pacote.id!.trim().isNotEmpty &&
         _items.containsKey(pacote.id)){
-      _items.update(pacote.id, (_) => pacote);
+      _items.update(pacote.id!, (_) => pacote);
     }
 
     final id = Random().nextDouble().toString();
