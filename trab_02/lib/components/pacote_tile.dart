@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:trab_02/models/pacote.dart';
 import 'package:trab_02/provider/pacotes.dart';
 import 'package:trab_02/routes/app_routes.dart';
-import '../models/my_icons_icons.dart';
+import 'my_icons_icons.dart';
 
 
 class PacoteTile extends StatelessWidget {

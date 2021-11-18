@@ -1,4 +1,4 @@
-name: trab_02
+name: help
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -29,12 +29,13 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.3
   sqflite: ^2.0.0+4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -46,6 +47,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
 
   fonts:
     - family: MyIcons
@@ -63,22 +65,22 @@ flutter:
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
 
-  # To add custom fonts to your application, add a fonts section here,
+  # To add custom icons to your application, add a icons section here,
   # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
+  # "family" key with the font family name, and a "icons" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  # icons:
   #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  #     icons:
+  #       - asset: icons/Schyler-Regular.ttf
+  #       - asset: icons/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
+  #     icons:
+  #       - asset: icons/TrajanPro.ttf
+  #       - asset: icons/TrajanPro_Bold.ttf
   #         weight: 700
   #
-  # For details regarding fonts from package dependencies,
+  # For details regarding icons from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:trab_02/data/dummy_pacotes.dart';
 import 'package:trab_02/models/pacote.dart';
@@ -21,7 +20,7 @@ class Pacotes with ChangeNotifier{
 
   //inclui ou altera um pacote
   void put(Pacote pacote){
-    
+
     if(pacote.codigo!.trim().isNotEmpty &&
         _items.containsKey(pacote.id)){
       _items.update(pacote.id!, (_) => pacote);
