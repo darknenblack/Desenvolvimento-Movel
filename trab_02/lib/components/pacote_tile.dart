@@ -20,7 +20,7 @@ class PacoteTile extends StatelessWidget {
       child: ListTile(
         leading: icone,
         title: Text(pacote.name!),
-        subtitle: Text(pacote.descricao!),
+        subtitle: null,
         onTap: (){
           Navigator.of(context).pushNamed(
               AppRoutes.PACOTE_CARD,

@@ -16,12 +16,6 @@ class PacoteList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Lista de Pacotes'),
-        /*actions: <Widget>[
-          IconButton(onPressed: (){
-            ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Atualizando..')));
-          }, icon: const Icon(Icons.update))
-        ],*/
       ),
       body: ListView.builder(
         itemCount: pacotes.count,

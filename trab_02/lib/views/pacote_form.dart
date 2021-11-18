@@ -28,10 +28,6 @@ class PacoteForm extends StatelessWidget {
                 Provider.of<Pacotes>(context, listen:false).put(Pacote(
                   id: _formData['id'] ?? '0',
                   name: _formData['name'] ?? 'vazio',
-                  descricao: _formData['descricao'] ?? 'vazio',
-                  local: _formData['local'] ?? 'vazio',
-                  data: _formData['data'] ?? 'vazio',
-                  hora: _formData['hora'] ?? 'vazio',
                   codigo: _formData['codigo'] ?? 'vazio',
                 ),
                 );
