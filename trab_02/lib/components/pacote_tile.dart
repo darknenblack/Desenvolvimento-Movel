@@ -13,6 +13,7 @@ class PacoteTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final icone = Icon(MyIcons.truck01, color: Colors.lightBlue,);
+
     return Card(
       elevation: 3,
       margin: EdgeInsets.all(10),
